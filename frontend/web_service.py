@@ -37,7 +37,7 @@ try:
 
     with st.form('subscription'):
         # fields
-        email = st.text_input(':email: E-Mail-Adresse `max.mustermann@mail.de`', key='email')
+        email = st.text_input(':email: E-Mail-Adresse `max.mustermann@mail.de`', key='email').lower()
         number = st.number_input(':tickets: Gewinnnummer `1234`', min_value=1, max_value=5000, step=1, value=None, key='number')
         daily = st.checkbox(':calendar: Tägliche Benachrichtigung', value=True, help='Falls deaktiviert, erhälst du lediglich eine Benachrichtigung bei einem Gewinn.', key='daily')
         mode = st.radio('Modus', [Mode.SUB.value, Mode.UNSUB.value], 0, horizontal=True, label_visibility='collapsed', key='mode')
