@@ -1,4 +1,4 @@
-# {number}
+{number}
 Oma's Adventskalender
 Du erhälst nun {daily}Benachrichtigungen über etwaige Gewinne.
 Viel Glück!
