@@ -60,12 +60,12 @@ try:
                 result = Subscription(server.subscribe(valid_email, valid_number, daily))
                 match(result):
                     case Subscription.CREATED:
-                        feedback(f'__:green[Abonniert]__\nDu erhälst nun für diese Gewinnnummer Benachrichtigungen')
+                        feedback(f'__:green[Abonniert]__\nDu erhälst nun für die Gewinnnummer {number} Benachrichtigungen an {email}')
                         reset()
                     case Subscription.UPTODATE:
-                        feedback(f'__:orange[Duplikat]__\nDu erhälst für diese Gewinnnummer bereits Benachrichtigungen')
+                        feedback(f'__:orange[Duplikat]__\nDu erhälst für die Gewinnnummer {number} bereits Benachrichtigungen')
                     case Subscription.UPDATED:
-                        feedback(f'__:green[Aktualisiert]__\nDie Häufigkeit der Benachrichtigungen für diese Gewinnnummer wurde aktualisiert')
+                        feedback(f'__:green[Aktualisiert]__\nDie Häufigkeit der Benachrichtigungen für die Gewinnnummer {number} wurde aktualisiert')
                         reset()
                     case Subscription.ERROR:
                         feedback('__:red[Fehler]__\nDas hat leider nicht geklappt')
@@ -74,7 +74,7 @@ try:
 
             elif mode == Mode.UNSUB.value:
                 if server.unsubscribe(valid_email, valid_number):
-                    feedback(f'__:green[Deabonniert]__\nDu erhälst für diese Gewinnnummer nun __keine__ Benachrichtigungen mehr')
+                    feedback(f'__:green[Deabonniert]__\nDu erhälst für die Gewinnnummer {number} nun __keine__ Benachrichtigungen mehr')
                     reset()
                 else:
                     feedback('__:red[Ausnahme]__\nDas hat leider nicht geklappt')
