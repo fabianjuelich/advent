@@ -92,7 +92,7 @@ def unsubscribed(email: str, number: int):
 # send notification
 def notify(email: str, number: int, win):
     # fill placeholders
-    subject = subject_win if win else subject_lose.format(number=number)
+    subject = subject_win.format(number=number) if win else subject_lose.format(number=number)
     fallback = notificationPlain.format(number=number, day=day, statement=congrats.format(win=win) if win else quote)
     notification = notificationHTML.format(number=number, day=day, statement=congrats.format(win=win) if win else f'<q>{quote}</q>')
     # send
